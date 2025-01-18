@@ -1,1 +1,42 @@
-<p>task-list works!</p>
+<div>
+  <!-- Add New Task Form -->
+  <div>
+    <h3>Add New Task</h3>
+    <input [(ngModel)]="newTask.title" placeholder="Title" />
+    <input [(ngModel)]="newTask.name" placeholder="Name" />
+    <input [(ngModel)]="newTask.description" placeholder="Description" />
+    <label>
+      Completed:
+      <input type="checkbox" [(ngModel)]="newTask.completed" />
+    </label>
+    <button (click)="addTask()">Add Task</button>
+    <button (click)="fetchData()">Get Tasks</button>
+  </div>
+
+  <!-- Task List -->
+  <ul>
+    <li *ngFor="let task of tasks">
+      <div *ngIf="editingTask?.id !== task.id">
+        <strong>{{ task.title }}</strong> - {{ task.name }}
+        <p>Description: {{ task.description }}</p>
+        <p>Status: {{ task.completed ? 'Completed' : 'Incomplete' }}</p>
+        <button (click)="startEditTask(task)">Edit</button>
+        <button (click)="deleteTask(task.id)">Delete</button>
+      </div>
+
+      <!-- Edit Task Form -->
+      <div *ngIf="editingTask?.id === task.id">
+        <h3>Edit Task</h3>
+        <input [(ngModel)]="editingTask.title" placeholder="Title" />
+        <input [(ngModel)]="editingTask.name" placeholder="Name" />
+        <input [(ngModel)]="editingTask.description" placeholder="Description" />
+        <label>
+          Completed:
+          <input type="checkbox" [(ngModel)]="editingTask.completed" />
+        </label>
+        <button (click)="updateTask()">Save</button>
+        <button (click)="cancelEdit()">Cancel</button>
+      </div>
+    </li>
+  </ul>
+</div>
