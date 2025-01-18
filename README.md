@@ -1,59 +1,95 @@
-# AngularRailsFrontend
+# Angular Application with a Rails Backend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.2.
+This is the frontend part of the application built using Angular. It communicates with a Rails backend to manage tasks.
 
-## Development server
+## Table of Contents
 
-To start a local development server, run:
+- [About](#about)
+- [Technologies Used](#technologies-used)
+- [Setup](#setup)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running the Application](#running-the-application)
+- [Folder Structure](#folder-structure)
+- [API Endpoints](#api-endpoints)
+- [Contributing](#contributing)
+
+## About
+
+This Angular frontend connects to a Rails backend to allow users to manage a list of tasks. The application supports basic CRUD operations: Create, Read, Update, and Delete tasks.
+
+## Technologies Used
+
+- **Angular**: Frontend framework used to build the UI.
+- **RxJS**: Library for reactive programming and handling asynchronous operations.
+- **HttpClient**: Used to make HTTP requests to the Rails API.
+- **Bootstrap**: (Optional) Used for styling (if applicable).
+
+## Setup
+
+### Prerequisites
+
+Before you begin, make sure you have the following installed on your machine:
+
+- [Node.js](https://nodejs.org/) (version 14 or higher)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
+- [Angular CLI](https://angular.io/cli) (Install it via `npm install -g @angular/cli`)
+
+### Installation
+
+1. Clone the repository:
+
+    ```bash
+    git clone <repo-url> frontend
+    cd frontend
+    ```
+
+2. Install the dependencies:
+
+    ```bash
+    npm install
+    ```
+
+### Running the Application
+
+1. Start the development server:
+
+    ```bash
+    ng serve
+    ```
+
+2. Visit `http://localhost:4200` in your browser.
+
+The frontend will now be running, and it should be able to communicate with the backend API to manage tasks. Make sure your Rails backend is running (typically on `http://localhost:3000`).
+
+### Connecting to the Backend
+
+By default, the application is set to make API requests to `http://localhost:3000/tasks`. Ensure that the backend API is up and running before you test the frontend.
+
+### Folder Structure
 
 ```bash
-ng serve
+frontend/
+├── src/
+│   ├── app/
+│   │   ├── components/          # Angular components (e.g., task list, add task)
+│   │   ├── services/            # Service for interacting with the backend API
+│   │   ├── app.component.ts     # Main component file
+│   │   ├── app.component.html   # Template for the main component
+│   │   ├── app.module.ts        # Main app module file
+│   ├── assets/                  # Static files like images
+│   ├── environments/            # Environment configurations (e.g., development, production)
+│   ├── styles.css               # Global CSS styles
+├── angular.json                 # Angular configuration file
+├── package.json                 # Node.js dependencies and scripts
+└── tsconfig.json                # TypeScript configuration
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### API Endpoints
 
-## Code scaffolding
+The Angular app interacts with the Rails backend using the following API endpoints:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- `GET /tasks`: Retrieves the list of tasks.
+- `POST /tasks`: Creates a new task.
+- `PATCH /tasks/:id`: Updates an existing task.
+- `DELETE /tasks/:id`: Deletes a task.
