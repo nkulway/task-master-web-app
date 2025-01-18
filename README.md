@@ -12,7 +12,6 @@ This is the frontend part of the application built using Angular. It communicate
   - [Running the Application](#running-the-application)
 - [Folder Structure](#folder-structure)
 - [API Endpoints](#api-endpoints)
-- [Contributing](#contributing)
 
 ## About
 
@@ -23,7 +22,6 @@ This Angular frontend connects to a Rails backend to allow users to manage a lis
 - **Angular**: Frontend framework used to build the UI.
 - **RxJS**: Library for reactive programming and handling asynchronous operations.
 - **HttpClient**: Used to make HTTP requests to the Rails API.
-- **Bootstrap**: (Optional) Used for styling (if applicable).
 
 ## Setup
 
