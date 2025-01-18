@@ -20,19 +20,15 @@
     --gray-700: oklch(36.98% 0.014 302.71);
     --gray-400: oklch(70.9% 0.015 304.04);
 
-    --red-to-pink-to-purple-vertical-gradient: linear-gradient(
-      180deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
+    --red-to-pink-to-purple-vertical-gradient: linear-gradient(180deg,
+        var(--orange-red) 0%,
+        var(--vivid-pink) 50%,
+        var(--electric-violet) 100%);
 
-    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(
-      90deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
+    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(90deg,
+        var(--orange-red) 0%,
+        var(--vivid-pink) 50%,
+        var(--electric-violet) 100%);
 
     --pill-accent: var(--bright-blue);
 
@@ -133,9 +129,11 @@
   .pill-group .pill:nth-child(6n + 1) {
     --pill-accent: var(--bright-blue);
   }
+
   .pill-group .pill:nth-child(6n + 2) {
     --pill-accent: var(--french-violet);
   }
+
   .pill-group .pill:nth-child(6n + 3),
   .pill-group .pill:nth-child(6n + 4),
   .pill-group .pill:nth-child(6n + 5) {
@@ -178,7 +176,53 @@
 </style>
 
 <main class="main">
-  <div class="content">
+
+
+  <div>
+    <h1>{{ title }}</h1>
+
+    <!-- Add New Task Form -->
+    <div>
+      <h3>Add New Task</h3>
+      <input [(ngModel)]="newTask.title" placeholder="Title" />
+      <input [(ngModel)]="newTask.name" placeholder="Name" />
+      <input [(ngModel)]="newTask.description" placeholder="Description" />
+      <label>
+        Completed:
+        <input type="checkbox" [(ngModel)]="newTask.completed" />
+      </label>
+      <button (click)="addTask()">Add Task</button>
+      <button (click)="fetchData()">Get Tasks</button>
+    </div>
+
+    <!-- Task List -->
+    <ul>
+      <li *ngFor="let task of tasks">
+        <div *ngIf="editingTask?.id !== task.id">
+          <strong>{{ task.title }}</strong> - {{ task.name }}
+          <p>Description: {{ task.description }}</p>
+          <p>Status: {{ task.completed ? 'Completed' : 'Incomplete' }}</p>
+          <button (click)="startEditTask(task)">Edit</button>
+          <button (click)="deleteTask(task.id)">Delete</button>
+        </div>
+
+        <!-- Edit Task Form -->
+        <div *ngIf="editingTask?.id === task.id">
+          <h3>Edit Task</h3>
+          <input [(ngModel)]="editingTask.title" placeholder="Title" />
+          <input [(ngModel)]="editingTask.name" placeholder="Name" />
+          <input [(ngModel)]="editingTask.description" placeholder="Description" />
+          <label>
+            Completed:
+            <input type="checkbox" [(ngModel)]="editingTask.completed" />
+          </label>
+          <button (click)="updateTask()">Save</button>
+          <button (click)="cancelEdit()">Cancel</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <!-- <div class="content">
     <div class="left-side">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -321,7 +365,7 @@
         </a>
       </div>
     </div>
-  </div>
+  </div> -->
 </main>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
