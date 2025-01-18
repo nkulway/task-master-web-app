@@ -17,6 +17,11 @@ This is the frontend part of the application built using Angular. It communicate
 
 This Angular frontend connects to a Rails backend to allow users to manage a list of tasks. The application supports basic CRUD operations: Create, Read, Update, and Delete tasks.
 
+## Demo
+<img width="1656" alt="Screenshot 2025-01-18 at 6 27 32 PM" src="https://github.com/user-attachments/assets/6e85f17b-2b66-4242-ae4c-f4f556748720" />
+
+
+
 ## Technologies Used
 
 - **Angular**: Frontend framework used to build the UI.
