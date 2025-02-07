@@ -42,11 +42,6 @@ Before you begin, make sure you have the following installed on your machine:
 
 1. Clone the repository:
 
-    ```bash
-    git clone <repo-url> frontend
-    cd frontend
-    ```
-
 2. Install the dependencies:
 
     ```bash
@@ -69,24 +64,7 @@ The frontend will now be running, and it should be able to communicate with the 
 
 By default, the application is set to make API requests to `http://localhost:3000/tasks`. Ensure that the backend API is up and running before you test the frontend.
 
-### Folder Structure
-
-```bash
-frontend/
-├── src/
-│   ├── app/
-│   │   ├── components/          # Angular components (e.g., task list, add task)
-│   │   ├── services/            # Service for interacting with the backend API
-│   │   ├── app.component.ts     # Main component file
-│   │   ├── app.component.html   # Template for the main component
-│   │   ├── app.module.ts        # Main app module file
-│   ├── assets/                  # Static files like images
-│   ├── environments/            # Environment configurations (e.g., development, production)
-│   ├── styles.css               # Global CSS styles
-├── angular.json                 # Angular configuration file
-├── package.json                 # Node.js dependencies and scripts
-└── tsconfig.json                # TypeScript configuration
-```
+The backend project can be found [here](https://github.com/nkulway/task-master)
 
 ### API Endpoints
 
